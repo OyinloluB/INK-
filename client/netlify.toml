@@ -1,3 +1,5 @@
-[build]
-  command = "yarn build"
-  publish = "net"
+# We're a SPA, so rewrite everything to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
