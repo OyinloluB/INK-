@@ -1,0 +1,14 @@
+* {
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+.navContainer {
+  background-color: #2f303a;
+  display: flex;
+  align-items: center;
+  padding: 20px 10vw;
+  height: 10vh;
+}
+Nav a {
+  font-size: 16px;
+}

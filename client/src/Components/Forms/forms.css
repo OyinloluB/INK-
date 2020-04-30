@@ -1,0 +1,43 @@
+.formColor {
+  background-color: #2f303a;
+}
+.formContainer {
+  height: 90vh;
+  position: relative;
+  padding-top: 3vh;
+}
+.inputBox {
+  background-color: #202027;
+}
+.inputField {
+  background-color: transparent;
+  border-color: #be9063;
+  width: 100%;
+  margin-bottom: 12px;
+}
+.formButton {
+  background-color: #be9063;
+  max-width: 350px;
+  transition: 0.5s;
+}
+.formButton:hover {
+  transform: scale(1.05);
+}
+.subTextMedium {
+  font-size: 16px;
+}
+.subTextSmall {
+  font-size: 16px;
+}
+.linkStyle:hover {
+  text-decoration: none;
+  color: #be9063;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 420px) {
+  .px-16 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
