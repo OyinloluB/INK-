@@ -2,6 +2,13 @@
   background-color: #2f303a;
 }
 .formContainer {
+  background-color: black;
+  /* background-image: url("../../assets/Landing page/allt.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
   height: 90vh;
   position: relative;
   padding-top: 3vh;
@@ -37,7 +44,14 @@
 
 @media screen and (max-width: 420px) {
   .px-16 {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
+  .inputBox {
+    background-color: transparent;
+  }
+  .formContainer {
+    background-color: #000;
+    background-image: none;
   }
 }

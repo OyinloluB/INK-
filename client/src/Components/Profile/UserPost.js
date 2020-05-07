@@ -8,3 +8,6 @@ export const UserPost = () => {
     </div>
   );
 };
+
+
+//fetch all the posts from user and render them in userProfile.js

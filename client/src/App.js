@@ -24,7 +24,7 @@ const App = () => {
           <AlertState>
             <PostState>
               <Alerts />
-              <Navbar />
+              {/* <Navbar /> */}
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/user" component={authRoutes} />
