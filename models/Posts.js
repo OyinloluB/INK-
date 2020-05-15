@@ -5,13 +5,17 @@ const PostSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "users",
   },
-  post: {
+  title: {
     type: String,
     required: true,
   },
-  type:{
-      type: String,
-      default: 'personal'
+  subtitle: {
+    type: String,
+    required: true,
+  },
+  postText: {
+    type: String,
+    required: true,
   },
   date: {
     type: Date,

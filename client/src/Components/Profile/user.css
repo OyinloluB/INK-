@@ -1,0 +1,102 @@
+.makeStyles-drawerPaper-4 {
+  width: 240px;
+  height: 100vh;
+  padding: 40px 0;
+  background-color: #202027 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.sidebarItems {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sidebarTopContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.userContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 15px;
+}
+.makeStyles-content-6 {
+  padding: 24px;
+  flex-grow: 1;
+  height: 100vh;
+  overflow: auto;
+  background-color: #2f303a !important;
+}
+.ui.secondary.pointing.menu {
+  display: flex;
+  justify-content: space-between;
+}
+.ui.secondary.pointing.menu .item {
+  color: #fff;
+}
+.ui.secondary.pointing.menu a.item:hover {
+  background-color: transparent;
+  color: white;
+}
+.ui.secondary.pointing.menu .active.item {
+  border-color: rgb(190, 144, 99);
+  font-weight: 700;
+  color: rgb(190, 144, 99);
+}
+.ui.secondary.pointing.menu .active.item:hover {
+  border-color: rgb(190, 144, 99);
+  font-weight: 700;
+  color: rgb(190, 144, 99);
+}
+.ui.tab.active {
+  display: block;
+  background-color: #2f303a;
+  padding: 0px;
+  width: 65vw;
+  margin-left: 3vw;
+  margin-top: 30px;
+  border: none;
+}
+
+.ui.form textarea:focus {
+  outline: 0;
+}
+.ui.form textarea {
+  border: 2px solid rgb(190, 144, 99);
+}
+.ui.form .wide.field .ui.input input {
+  height: 60px;
+  border: 2px solid rgb(190, 144, 99);
+}
+/* .postItem {
+  border-right: 1px solid rgba(225, 225, 255, 0.6);
+} */
+.responsiveNav {
+  display: none;
+}
+
+@media screen and (max-width: 420px) {
+  .makeStyles-drawer-3 {
+    display: none;
+  }
+  .ui.tab.active {
+    width: 100%;
+    margin-left: 0vw;
+  }
+  .postItem {
+    border-right: none;
+  }
+  .ui .input {
+    margin-bottom: 10px;
+  }
+  .responsiveNav {
+    display: block;
+    background-color: #202027;
+  }
+}

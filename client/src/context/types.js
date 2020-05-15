@@ -1,13 +1,15 @@
 export const ADD_POST = "ADD_POST";
+export const GET_POST = "GET_POST";
+export const CLEAR_POST = "CLEAR_POST";
 export const DELETE_POST = "DELETE_POST";
 export const SET_CURRENT = "SET_CURRENT";
 export const CLEAR_CURRENT = "CLEAR_CURRENT";
 export const UPDATE_POST = "UPDATE_POST";
 export const FILTER_POST = "FILTER_POST";
 export const CLEAR_FILTER = "CLEAR_FILTER";
+export const POST_ERROR = "POST_ERROR";
 export const SET_ALERT = "SET_ALERT";
 export const REMOVE_ALERT = "REMOVE_ALERT";
-
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 export const USER_LOADED = "USER_LOADED";

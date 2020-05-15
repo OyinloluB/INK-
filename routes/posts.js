@@ -23,24 +23,31 @@ router.get("/", auth, async (req, res) => {
 //@access  Private
 router.post(
   "/",
-  [auth, [check("post", "This field cannot be empty").not().isEmpty()]],
+  [
+    auth,
+    [
+      check("title", "Title is required").not().isEmpty(),
+      check("postText", "This field cannot be empty").not().isEmpty(),
+    ],
+  ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { post, type } = req.body;
+    const { title, subtitle, postText } = req.body;
 
     try {
       const newPost = new Posts({
-        post,
-        type,
+        title,
+        subtitle,
+        postText,
         user: req.user.id,
       });
 
       const userPost = await newPost.save();
 
-      res.json(userPost)
+      res.json(userPost);
     } catch (error) {
       console.error(err.message);
       res.status(500).send("Server error");

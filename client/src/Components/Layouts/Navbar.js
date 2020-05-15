@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import Logo from "../../assets/Landing page/logo.svg";
-import BubbleOne from "../../assets/Landing page/circle-nav.svg";
 
 const Navbars = () => {
   return (
@@ -42,17 +41,6 @@ const Navbars = () => {
           </NavLink>
         </Nav>
       </Navbar>
-
-      {/* <img
-        src={BubbleOne}
-        style={{
-          position: "relative",
-          zIndex: "1",
-          top: "-26vh",
-          right: "-80%",
-          width: "250px",
-        }}
-      /> */}
     </>
   );
 };
