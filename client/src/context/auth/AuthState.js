@@ -18,15 +18,17 @@ const AuthState = (props) => {
   const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
-    loading: true,
+    loading: false,
     user: null,
     error: null,
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
+  //API URL
+  //https://writewithink.herokuapp.com/
 
   //Load User
-  const loadUser = () => async () => {
+  const loadUser = async () => {
     if (localStorage.token) {
       setAuthToken(localStorage.token);
     }
@@ -45,31 +47,25 @@ const AuthState = (props) => {
 
   //Register User
   const register = async (formData) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
     try {
-      const res = await axios.post("/api/user", formData, config);
+      const res = await axios.post("/api/user", formData);
 
       dispatch({
         type: REGISTER_SUCCESS,
         payload: res.data,
       });
 
-      loadUser();
+      await loadUser();
     } catch (error) {
       dispatch({
         type: REGISTER_FAIL,
-        payload: error.response.data.msg,
+        payload: error.response ? error.response.data.msg : error.msg,
       });
     }
   };
 
   //Login User
-  const login = async (formData) => {
+  const login = async (formData, loading) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -77,24 +73,23 @@ const AuthState = (props) => {
     };
 
     try {
-      const res = await axios.post("https://writewithink.herokuapp.com/auth", formData, config);
+      const res = await axios.post("/api/auth", formData, config);
 
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
       });
-
-      loadUser();
+      await loadUser();
     } catch (error) {
       dispatch({
         type: LOGIN_FAIL,
-        payload: error.response.data.msg,
+        payload: error.response ? error.response.data.msg : error.msg,
       });
     }
   };
 
   //Logout User
-  const logout = () => console.log("Logout");
+  const logout = () => dispatch({ type: LOGOUT });
 
   //Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });

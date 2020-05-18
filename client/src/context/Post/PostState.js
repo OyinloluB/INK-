@@ -26,7 +26,9 @@ const PostState = (props) => {
   //Get Post
   const getPosts = async () => {
     try {
-      const res = await axios.get("/api/posts");
+      const res = await axios.get(
+        "https://writewithink.herokuapp.com/api/posts"
+      );
 
       dispatch({
         type: GET_POST,
@@ -35,7 +37,7 @@ const PostState = (props) => {
     } catch (error) {
       dispatch({
         type: POST_ERROR,
-        payload: error.response.msg,
+        payload: error.response ? error.response.data.msg : error.msg,
       });
     }
   };
@@ -48,17 +50,35 @@ const PostState = (props) => {
       },
     };
     try {
-      const res = await axios.post("/api/posts", post, config);
+      const res = await axios.post(
+        "https://writewithink.herokuapp.com/api/posts",
+        post,
+        config
+      );
 
       dispatch({ type: ADD_POST, payload: res.data });
     } catch (error) {
-      dispatch({ type: POST_ERROR, payload: error.response.msg });
+      dispatch({
+        type: POST_ERROR,
+        payload: error.response ? error.response.data.msg : error.msg,
+      });
     }
   };
 
   //Delete Post
-  const deletePost = (id) => {
-    dispatch({ type: DELETE_POST, payload: id });
+  const deletePost = async (id) => {
+    try {
+      const res = await axios.delete(
+        `https://writewithink.herokuapp.com/api/posts/${id}`
+      );
+
+      dispatch({
+        type: DELETE_POST,
+        payload: id,
+      });
+    } catch (error) {
+      dispatch({ type: POST_ERROR, payload: error.response.msg });
+    }
   };
 
   //Set Current Post

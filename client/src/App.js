@@ -6,7 +6,7 @@ import userRoutes from "./Components/Routes/userRoutes";
 import { Home } from "./Components/General/Home";
 import Navbar from "./Components/Layouts/Navbar";
 import { Alerts } from "./Components/Layouts/Alerts";
-
+import AuthContext from "./context/auth/authContext";
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
 import PostState from "./context/Post/PostState";

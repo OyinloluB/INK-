@@ -1,8 +1,11 @@
 const express = require("express");
 const fileUpload = require("express-fileupload");
-const {config} = require('dotenv');
+const { config } = require("dotenv");
 const connectDB = require("./config/db");
 const cors = require("cors");
+const cloudinaryUtility = require("./util/cloudinary");
+
+config();
 
 const app = express();
 

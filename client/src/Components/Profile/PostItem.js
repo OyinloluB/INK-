@@ -2,15 +2,19 @@ import React, { useContext } from "react";
 import { Button } from "semantic-ui-react";
 import { Popover, OverlayTrigger } from "react-bootstrap";
 import PostContext from "../../context/Post/postContext";
+import AuthContext from "../../context/auth/authContext";
 
 const PostItem = ({ eachPost }) => {
   const postContext = useContext(PostContext);
+  const authContext = useContext(AuthContext);
+
+  const { user } = authContext;
   const { deletePost } = postContext;
 
-  const { id, name, title, subtitle, postText } = eachPost;
+  const { _id, name, title, subtitle, postText } = eachPost;
 
   const onDelete = () => {
-    deletePost(id);
+    deletePost(_id);
   };
 
   const popover = (
@@ -44,7 +48,7 @@ const PostItem = ({ eachPost }) => {
     >
       <h1
         style={{
-          fontSize: "20px",
+          fontSize: "18px",
           color: "white",
           fontFamily: "'Roboto', sans-serif",
           fontWeight: "500",
@@ -60,11 +64,11 @@ const PostItem = ({ eachPost }) => {
           fontWeight: "300",
         }}
       >
-        By{" "}
+        By &nbsp;
         <span
-          style={{ color: "#df0058", fontWeight: "500", marginBottom: "25px" }}
+          style={{ color: "#BE9063", fontWeight: "300", marginBottom: "25px" }}
         >
-          {name}
+          @ @{user ? user.username : "username"}
         </span>
       </p>
       <OverlayTrigger trigger="click" placement="right" overlay={popover}>

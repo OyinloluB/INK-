@@ -3,10 +3,6 @@
 }
 .formContainer {
   background-color: black;
-  /* background-image: url("../../assets/Landing page/allt.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
   font-family: "Poppins", sans-serif;
   font-weight: normal;
   height: 90vh;
@@ -24,7 +20,7 @@
 }
 .formButton {
   background-color: #be9063;
-  max-width: 350px;
+  /* max-width: 350px; */
   transition: 0.5s;
 }
 .formButton:hover {
@@ -41,8 +37,15 @@
   color: #be9063;
   font-weight: bold;
 }
+.flexInputs {
+  display: flex;
+}
 
 @media screen and (max-width: 420px) {
+  .flexInputs {
+    display: flex;
+    flex-direction: column;
+  }
   .px-16 {
     padding-left: 0rem;
     padding-right: 0rem;

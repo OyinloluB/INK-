@@ -82,8 +82,17 @@
 }
 
 @media screen and (max-width: 420px) {
-  .makeStyles-drawer-3 {
+  .makeStyles-drawer-3,
+  .MuiDrawer-paperAnchorDockedLeft,
+  .jss3 {
     display: none;
+  }
+  .jss6 {
+    padding-top: 24px;
+    height: 100vh;
+    overflow: auto;
+    flex-grow: 1;
+    background-color: #2f303a !important;
   }
   .ui.tab.active {
     width: 100%;

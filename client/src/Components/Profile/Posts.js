@@ -1,8 +1,9 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Button } from "semantic-ui-react";
 import { Row, Col } from "react-bootstrap";
 import PostItem from "./PostItem";
 import PostContext from "../../context/Post/postContext";
+import { Spinner } from "react-bootstrap";
 
 const Posts = () => {
   const postContext = useContext(PostContext);
@@ -26,7 +27,7 @@ const Posts = () => {
               marginBottom: "25px",
             }}
           >
-            <PostItem key={eachPost._id} eachPost={eachPost} />
+            <PostItem key={eachPost.id} eachPost={eachPost} />
           </Col>
         ))}
       </Row>

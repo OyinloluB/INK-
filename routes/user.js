@@ -1,6 +1,6 @@
 const express = require("express");
-const path = require('path');
-const fs = require('fs');
+const path = require("path");
+const fs = require("fs");
 
 const router = express.Router();
 const { check, validationResult } = require("express-validator");
@@ -16,9 +16,13 @@ const cloudinaryUtil = require("../util/cloudinary");
 router.post(
   "/",
   [
-    check("name", "Please add name").not().isEmpty(),
+    check("firstname", "Please add name").not().isEmpty(),
+    check("lastname", "Please add name").not().isEmpty(),
     check("email", "Please include a valid email").isEmail(),
-    check("password", "Please enter a password with 6 or more characters").isLength({
+    check(
+      "password",
+      "Please enter a password with 6 or more characters"
+    ).isLength({
       min: 6,
     }),
     check("image").custom((value, { req }) => {
@@ -33,7 +37,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { name, email, password } = req.body;
+    const { firstname, lastname, username, email, password } = req.body;
 
     try {
       let user = await User.findOne({ email });
@@ -41,8 +45,8 @@ router.post(
       if (user) {
         return res.status(400).json({ msg: "User already exists" });
       }
-      
-      const {image} = req.files;
+
+      const { image } = req.files;
 
       const imagePath = path.resolve(`./temp/${image.name}`);
       await image.mv(imagePath);
@@ -54,10 +58,12 @@ router.post(
       });
 
       user = new User({
-        name,
+        firstname,
+        lastname,
+        username,
         email,
         password,
-        imageUrl: imageRes.secure_url,
+        image: imageRes.secure_url,
       });
 
       const salt = await bcrypt.genSalt(10);
@@ -84,7 +90,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.log(err)
+      console.log(err);
       console.error(err.message);
       res.status(500).send("Server error");
     }
