@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 import AuthContext from "./authContext";
 import authReducer from "./authReducer";
@@ -23,7 +23,14 @@ const AuthState = (props) => {
     error: null,
   };
 
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const localState = JSON.parse(localStorage.getItem("auth"));
+
+  const [state, dispatch] = useReducer(authReducer, localState || initialState);
+
+  useEffect(() => {
+    localStorage.setItem("auth", JSON.stringify(state));
+  }, [state]);
+
   //API URL
   //https://writewithink.herokuapp.com/
 
